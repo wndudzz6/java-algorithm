@@ -6,26 +6,24 @@ public class Hw1 {
     public static void main(String[] args) {
 
         int[] arr = { 4, 5, 6, 1, 3, 2, 7};
-        int min = arrMin(arr);
+        int min = arrMin(arr, 0);
         System.out.println("배열 최솟값: "+min);
 
-        int sum = arrSum(arr);
+        int sum = arrSum(arr,0);
         System.out.println("배열 합: "+sum);
 
-        int[] selArr = selectSort(arr);
+        int[] selArr = selectSort(arr,0);
         printArr(selArr);
 
     }
 
-    public static int arrMin(int[] arr) {
-        int[] minArr = arr.clone();
-        Arrays.sort(minArr);
-        int min = minArr[0];
-        return min;
-    }
-
-    public static int arrSum(int[] arr) {
-        return arrSum(arr,0);
+    public static int arrMin(int[] arr, int index) {
+        if(index == arr.length-1) { //여기서부터
+            return arr[index];
+        }else {
+            int min = arrMin(arr, index+1);
+            return arr[index] < min ? arr[index] : min;
+        }
     }
     private static int arrSum(int[] arr, int index){
         if(index == arr.length-1){
@@ -33,17 +31,32 @@ public class Hw1 {
         }
         return arr[index] + arrSum(arr, index+1);
     }
-    public static int[] selectSort(int[] arr){
-        int[] selArr = arr.clone();
-        return selArr;
-    }
-    private static void selectSort(int[]arr, int index){
-        if(index== arr.length-1){
-            return;
-        }
-        int minIndex = index;
 
+     static int[] selectSort(int[]arr, int index){
+        if(index== arr.length-1){
+            return arr;
+        }
+        int minIndex = findMinIndex(arr, index, arr.length-1);
+        swap(arr, index, minIndex);
+        selectSort(arr, index+1);
+        return arr;
     }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    private static int findMinIndex(int[] arr, int current, int end) {
+        if (current == end) {
+            return current;
+        }
+        int minIndex = findMinIndex(arr, current + 1, end);
+        return arr[current] < arr[minIndex] ? current : minIndex;
+    }
+
+
     public static void printArr(int[] arr){
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
