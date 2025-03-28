@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class ReverseSpecificWord {
+//5. 특정 문자 뒤집기
+public class P5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();

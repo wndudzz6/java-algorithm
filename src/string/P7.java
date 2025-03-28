@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class Palindrome1 {
+//7. 회문문자열
+public class P7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine().toLowerCase();

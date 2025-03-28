@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class FindString {
+//1. 문자 찾기
+public class P1 {
 
     public static void main(String[] args) {
         int solution = solution();

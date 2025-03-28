@@ -1,8 +1,8 @@
 package string;
 
 import java.util.Scanner;
-
-public class WordInSentence {
+//3. 문장 속 단어
+public class P3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String sentence = sc.nextLine();

@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class DeleteDuplicatedWord {
+//6. 중복 문자 제거
+public class P6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();

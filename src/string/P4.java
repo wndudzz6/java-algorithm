@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class ReverseWord {
+//4. 단어뒤집기
+public class P4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n  = sc.nextInt();

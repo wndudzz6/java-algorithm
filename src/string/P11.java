@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class StringZip {
+//11. 문자열 압축
+public class P11 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();

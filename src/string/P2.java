@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class ChangeUtoL {
+//2. 대소문자 변환
+public class P2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();

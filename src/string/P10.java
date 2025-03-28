@@ -2,8 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-//강의 듣기 이해가 안돼
-public class ShortestWordDistance {
+//10. 문자거리
+public class P10 {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
       String s = sc.next();

@@ -2,7 +2,8 @@ package string;
 
 import java.util.Scanner;
 
-public class ExtractOnlyNumbers {
+//숫자만 추출
+public class P9 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
