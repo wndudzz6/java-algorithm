@@ -14,7 +14,7 @@ public class P6 {
         String s = sc.nextLine();
         String[] str = s.split(" ");
         int[] num = new int[n+1];
-        List<Integer> demicals = new ArrayList<>();
+        List<Integer> primes = new ArrayList<>();
 
 
 
@@ -34,13 +34,13 @@ public class P6 {
         for(int i = 2; i <= n; i++){
             if(num[i] != 0){
                 if(num[i] != 1){
-                    demicals.add(num[i]);
+                    primes.add(num[i]);
                 }
             }
         }
 
-        for (int i = 0; i < demicals.size(); i++) {
-            System.out.print(demicals.get(i)+" ");
+        for (int i = 0; i < primes.size(); i++) {
+            System.out.print(primes.get(i)+" ");
         }
     }
 }
