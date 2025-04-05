@@ -37,7 +37,7 @@ public class P6Ref {
     private static boolean isPrime(int num) {
         if (num < 2) return false;  // 1 이하의 수는 소수가 아님
         for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
+            if (num % i ==0) {
                 return false;  // 나누어떨어지면 소수가 아님
             }
         }
