@@ -42,7 +42,7 @@ public class P4 {
             //그 다음에 오는 문자 처리 (그냥 mapS.remove(charAt(lt++)) 하면 1이 아닌 값이어도 다 날라감
             char leftChar = s.charAt(lt++);
             mapS.put(leftChar, mapS.getOrDefault(leftChar,0) - 1);
-            if(mapS.get(leftChar) == 0) mapS.remove(leftChar);
+            if(mapS.get(leftChar) <= 0) mapS.remove(leftChar);
         }
 
         return answer;
