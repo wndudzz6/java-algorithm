@@ -14,13 +14,12 @@ public class P5 {
     static int solution(int n){
         int answer = 0;
         int sum = 0, lt = 1;
-        for(int rt = 1; rt < n/2+1; rt++){
+        for(int rt = 1; rt < n; rt++){
             sum += rt;
+            if(sum == n ) answer++;
             while(sum >= n) {
-                if(sum == n) {
-                    answer++;
-                }
                 sum -= lt++;
+                if(sum == n) answer++;
             }
         }
 

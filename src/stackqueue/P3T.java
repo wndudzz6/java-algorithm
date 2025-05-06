@@ -3,6 +3,7 @@ package stackqueue;
 import java.util.Scanner;
 import java.util.Stack;
 
+//진짜 아름다운 코드 
 public class P3T {
     static int solution(int[][] board, int[]moves){
         int answer = 0;
