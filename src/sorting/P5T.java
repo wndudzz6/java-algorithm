@@ -11,8 +11,7 @@ public class P5T {
         Arrays.sort(arr);
         for(int i = 0; i < n-1; i++) {
             if(arr[i] == arr[i+1]) { //정렬하면 당연히 연속된 값으로 있을 것이므로
-                answer = 'D';
-                break;
+                return 'D';
             }
         }
         return answer;

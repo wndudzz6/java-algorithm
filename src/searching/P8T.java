@@ -5,7 +5,7 @@ import java.util.Scanner;
 //8. 이분검색
 public class P8T {
     static int solution(int n, int m, int[] arr){
-        int answer = 0;
+        int answer = -1;
         Arrays.sort(arr);
         int lt = 0; int rt = n-1;
         while(lt <= rt){

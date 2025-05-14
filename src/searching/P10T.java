@@ -3,7 +3,7 @@ package searching;
 import java.util.Arrays;
 import java.util.Scanner;
 
-//10. 마굿간 정하기 (결정 알고리즘) n새릐 마굿간에 c(m)마리의 말 배치
+//10. 마굿간 정하기 (결정 알고리즘) n개의 마굿간에 c(m)마리의 말 배치
 public class P10T {
 
     static int count(int[] arr, int dist){
