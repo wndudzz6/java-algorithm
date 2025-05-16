@@ -2,6 +2,7 @@ package DP.boj;
 
 import java.util.Scanner;
 
+//와인문제
 public class P2156 {
     static int solution(int[] wines) {
         int n = wines.length;
