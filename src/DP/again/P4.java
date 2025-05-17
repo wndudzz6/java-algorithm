@@ -28,19 +28,16 @@ public class P4 {
     }
 
     static int solution(int n, ArrayList<Brick> bricks) {
-        int[] dp = new int[n]; //i까지 왔을 때 최대 높이
+        int[] dp = new int[n];
         Collections.sort(bricks);
-        dp[0] = bricks.get(0).h;
-
-        for(int i = 1; i<n ; i++){
+        for(int i = 0; i < n; i++){ //넓이순 정렬
             dp[i] = bricks.get(i).h;
-            for(int j = 0 ; j<i ; j++){
-                if(bricks.get(j).w> bricks.get(i).w){
-                    dp[i] = Math.max(dp[i], dp[j]+bricks.get(i).h);
+            for(int j = 0; j <i; j++){
+                if(bricks.get(i).w < bricks.get(j).w){
+                    dp[i] = Math.max(dp[i], dp[j]+bricks.get(i).h) ;
                 }
             }
-        }
-        return Arrays.stream(dp).max().getAsInt();
+        }return Arrays.stream(dp).max().getAsInt();
     }
 
     public static void main(String[] args) {

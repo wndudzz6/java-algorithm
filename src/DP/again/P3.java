@@ -14,8 +14,7 @@ public class P3 {
                 if(arr[j]<arr[i]){
                     dp[i] = Math.max(dp[i],dp[j]);
                 }
-            }
-            dp[i]++;
+            }dp[i]++;
         }
         return Arrays.stream(dp).max().getAsInt();
     }
