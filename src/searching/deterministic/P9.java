@@ -6,32 +6,29 @@ import java.util.Scanner;
 public class P9 {
 
     static int count(int[] songs, int capacity){
-       int cnt = 1;
-       int sum = 0;
-
-       for(int x : songs){
-           if(sum+x > capacity){
-               cnt++;
-               sum = x;
-           }else sum+=x;
-       }
-
-       return cnt;
+        int sum = 0;
+        int cnt = 1;
+        for(int x: songs){
+            if(sum+x > capacity){
+                cnt++;
+                sum = x;
+            }else sum+=x;
+        }
+        return cnt;
     }
 
     static int solution(int n, int m, int[] songs){
-        int answer = Integer.MAX_VALUE;
         int lt = Arrays.stream(songs).max().getAsInt();
         int rt = Arrays.stream(songs).sum();
+        int answer = rt;
 
-        while(lt <= rt){
-            int mid = (lt + rt) / 2;
+        while(lt<= rt){
+            int mid = (lt+rt)/2;
+
             if(count(songs, mid) <= m){
-                answer = Math.min(answer, mid);
-                rt = mid - 1;
-            }else{
-                lt = mid + 1;
-            }
+                answer = mid;
+                rt = mid-1;
+            }else lt = mid+1;
         }
         return answer;
     }

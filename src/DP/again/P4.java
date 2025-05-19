@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class P4 {
 
     static class Brick implements Comparable<Brick>{
-        int w;
-        int h;
         int s;
+        int h;
+        int w;
 
         Brick(int s, int h, int w) {
             this.s = s;//넓이
@@ -28,13 +28,13 @@ public class P4 {
     }
 
     static int solution(int n, ArrayList<Brick> bricks) {
+        Collections.sort(bricks);//넓이 기준 정렬
         int[] dp = new int[n];
-        Collections.sort(bricks);
-        for(int i = 0; i < n; i++){ //넓이순 정렬
+        for(int i = 0; i < n; i++){
             dp[i] = bricks.get(i).h;
-            for(int j = 0; j <i; j++){
-                if(bricks.get(i).w < bricks.get(j).w){
-                    dp[i] = Math.max(dp[i], dp[j]+bricks.get(i).h) ;
+            for(int j = i-1; j>= 0;j-- ){
+                if(bricks.get(j).w > bricks.get(i).w){
+                    dp[i] = Math.max(dp[i], dp[j]+bricks.get(i).h);
                 }
             }
         }return Arrays.stream(dp).max().getAsInt();

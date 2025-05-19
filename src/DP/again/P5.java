@@ -7,15 +7,15 @@ import java.util.Scanner;
 public class P5 {
 
     static int solution(int n, int m, int[] coins){
-        int[] dp = new int[m+1]; //i원 교환 최소 동전 수 ? 이상함.
-        Arrays.fill(dp, Integer.MAX_VALUE);
+        int[] dp = new int[m+1];
+        Arrays.fill(dp,Integer.MAX_VALUE-1);
         dp[0] = 0;
         for(int coin : coins){
             for(int i = coin; i <= m; i++){
-                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                dp[i] = Math.min(dp[i], dp[i-coin]+1);
             }
-        }return dp[m];
-
+        }
+        return dp[m];
     }
 
     public static void main(String[] args) {
