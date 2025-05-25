@@ -1,7 +1,7 @@
 package DFS.advanced;
 
 import java.util.Scanner;
-
+//부분집합 원소 출력 -> 부분집합합 문제라 ch배열을 쓰는 등 문제 최적화는 안됨
 public class P1GPT {
     static int n;
     static int[] arr;
