@@ -17,19 +17,19 @@ public class P7T {
     public static class Main{
         Node root;
         public void BFS(Node root){
-            Queue<Node> q = new LinkedList<>();
-            q.add(root);
-            int L = 0; //level
-            while(!q.isEmpty()){ //현재 레벨의 노드 개수
-                int len = q.size(); //현재 레벨 출력
-                System.out.print(L+" : ");
-                for(int i = 0; i < len; i++){
-                    Node cur = q.poll(); //현재 노드 꺼냄
+            Queue<Node> Q = new LinkedList<>();
+            Q.offer(root);
+            int l = 0;
+            while(!Q.isEmpty()){
+                int len = Q.size();
+                System.out.print(l+" : ");
+                for(int i = 0 ; i<len; i++){
+                    Node cur = Q.poll();
                     System.out.print(cur.data+" ");
-                    if(cur.lt != null) q.add(cur.lt); //왼쪽 자식 추가
-                    if(cur.rt != null) q.add(cur.rt); //오른쪽 자식 추가.
+                    if(cur.lt != null) Q.offer(cur.lt);
+                    if(cur.rt != null) Q.offer(cur.rt);
                 }
-                L++;
+                l++;
                 System.out.println();
             }
         }

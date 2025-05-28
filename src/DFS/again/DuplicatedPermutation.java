@@ -2,6 +2,8 @@ package DFS.again;
 
 import java.util.Scanner;
 
+//백트래킹은 선택의 유무가 있을 때 명시하는거다.
+//명시적인 백트래킹 코드는 아니나 알아서 잘함
 public class DuplicatedPermutation {
     static int n, m;
     static int[] arr;

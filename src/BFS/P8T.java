@@ -8,30 +8,29 @@ import java.util.Scanner;
 public class P8T {
     static int[] dis = {1, -1, 5};
     static int[] ch;
-    static Queue<Integer> q = new LinkedList<>();
+    static Queue <Integer> Q = new LinkedList<>();
+
     static int BFS(int s, int e){
         ch = new int[10001];
         ch[s] = 1;
-        q.offer(s);
-        int L = 0;
-        while(!q.isEmpty()){
-            int len=q.size();
-            for(int i=0; i<len; i++){
-                int x = q.poll();
-                for(int j=0; j<3; j++){
-                    int nx=x+dis[j];
-                    if(nx==e){
-                        return L+1;
-                    }
+        Q.offer(s);
+        int l = 0;
+        while(!Q.isEmpty()) {
+            int len = Q.size();
+            for(int i = 0; i < len; i++) {
+                int x = Q.poll();
+                if(x == e) return l;
+                for(int j = 0; j<3; j++){
+                    int nx = x+dis[j];
                     if(nx>=1 && nx<=10000 && ch[nx]==0){
                         ch[nx]=1;
-                        q.offer(nx);
+                        Q.offer(nx);
                     }
                 }
             }
-            L++;
+            l++;
         }
-        return 0;
+        return -1;
     }
 
     public static void main(String[] args) {

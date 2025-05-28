@@ -1,22 +1,22 @@
-package DFS.advanced;
+package DFS.again;
 
 import java.util.Scanner;
 
-public class P6T {
+public class Permutation {
     static int n, m;
-    static int[] ch, arr, pm;
-    //pm : permutation 순열 2
+    static int[] arr, pm, ch;
+
     static void dfs(int l){
         if(l==m){
             for(int x : pm) System.out.print(x+" ");
             System.out.println();
         }else{
-            for(int i =0; i<n; i++){
-                if(ch[i] == 0 ){
-                    ch[i] = 1;
-                    pm[l] = arr[i];
-                    dfs(l+1);
-                    ch[i] = 0; //풀어준다.
+            for(int i = 0; i < n; i++){
+                if(ch[i] == 0){
+                    ch[i] = 1; //선택
+                    pm[l] = arr[i]; //진행
+                    dfs(l+1); //재귀
+                    ch[i] = 0; //선택해제(백트래킹)
                 }
             }
         }
@@ -31,8 +31,8 @@ public class P6T {
             arr[i] = sc.nextInt();
         }
         sc.close();
-        ch = new int[n];
         pm = new int[m];
+        ch = new int[n];
         dfs(0);
     }
 }
