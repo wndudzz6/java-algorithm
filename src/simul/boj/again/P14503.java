@@ -1,4 +1,4 @@
-package simul.boj;
+package simul.boj.again;
 
 import java.util.Scanner;
 /**“시뮬레이션 문제의 핵심은 단위 시간 동안 일어나는 행동을 코드로 모사하는 것”
