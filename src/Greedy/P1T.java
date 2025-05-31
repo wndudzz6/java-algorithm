@@ -45,3 +45,17 @@ public class P1T {
         System.out.println(solution(arr, n));
     }
 }
+/*
+솔루션에서 탈락하는 놈 빼는 방식
+* static int solution(ArrayList<Wrestler> w){
+        int answer = w.size();
+        int max = Integer.MIN_VALUE;
+        for(Wrestler x : w){
+            if(x.w > max){
+                max = x.w;
+            }else{
+                answer--;
+            }
+        }
+        return answer;
+    }*/
