@@ -1,41 +1,40 @@
-package Greedy;
+package Greedy.again;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-//다익스트라 입력 밑에 넣어둠
-public class P5T {
+//다익스트라 알고리즘
+public class P5 {
     static int[] dis;
-    static int n, m;
     static ArrayList<ArrayList<Edge>> graph;
-
     static class Edge implements Comparable<Edge>{
         int vex;
         int cost;
-        public Edge(int v, int cost) {
-            this.vex = v; //정점
-            this.cost = cost; //가중치
+        Edge(int vex, int cost){
+            this.vex = vex;
+            this.cost = cost;
         }
-        @Override
-        public int compareTo(Edge o) { //Edge는 Cost 오름차순
-            return this.cost - o.cost;
+        public int compareTo(Edge o){
+            return this.cost - o.cost; //가중치 오름차
         }
     }
+
     static void solution(int v){
         PriorityQueue<Edge> pq = new PriorityQueue<>();
         pq.offer(new Edge(v,0));
         dis[v] = 0;
+
         while(!pq.isEmpty()){
             Edge tmp = pq.poll();
-            int now = tmp.vex;
+            int nowVex = tmp.vex;
             int nowCost = tmp.cost;
-            if(nowCost>dis[now]) continue;
-            for(Edge o : graph.get(now)){
-                if(dis[o.vex]>nowCost+o.cost) {
+            if(dis[nowVex] < nowCost) continue;
+            for(Edge o : graph.get(nowVex)){
+                if(dis[o.vex] > nowCost+o.cost){
                     dis[o.vex] = nowCost+o.cost;
-                    pq.offer(new Edge(o.vex, nowCost+o.cost));
+                    pq.offer(new Edge(o.vex, o.cost+nowCost));
                 }
             }
         }
@@ -43,27 +42,27 @@ public class P5T {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
-        graph = new ArrayList<ArrayList<Edge>>();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        graph = new ArrayList<>();
         for(int i = 0; i<= n; i++){
-            graph.add(new ArrayList<Edge>());
-        }dis = new int[n+1];
-
-        Arrays.fill(dis, Integer.MAX_VALUE);
-
-        for(int i= 0; i<m; i++){
+            graph.add(new ArrayList<>());
+        }
+        for(int i = 0; i<m; i++){
             int a = sc.nextInt();
             int b = sc.nextInt();
             int c = sc.nextInt();
-            graph.get(a).add(new Edge(b, c));
+            graph.get(a).add(new Edge(b,c));
         }
+        sc.close();
+        dis = new int[n+1];
+        Arrays.fill(dis, Integer.MAX_VALUE);
         solution(1);
-        for(int i = 2; i<= n; i++){
-            if(dis[i]!= Integer.MAX_VALUE) System.out.println(i+" : "+dis[i]);
+
+        for(int i = 2; i<=n ; i++){
+            if(dis[i]!=Integer.MAX_VALUE) System.out.println(i+" : "+dis[i]);
             else System.out.println(i+" : impossible");
         }
-
     }
 }
 /*
