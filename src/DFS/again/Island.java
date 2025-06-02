@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Island {
     static int[] dx = {-1, 0, 1, 0, 1, 1, -1, -1};
-    static int[] dy = { 0, 1, 0,-1, -1,1, -1, 1};
+    static int[] dy = { 0, 1, 0,-1, -1, 1, -1, 1};
     static int[][] board;
     static int answer = 0;
     static int n;

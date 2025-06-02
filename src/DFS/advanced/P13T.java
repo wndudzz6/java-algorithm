@@ -15,7 +15,7 @@ public class P13T {
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
                 if(board[i][j]==1){
-                    answer++;
+                    answer++; //이 sum 관련된 건 solution에서 처리하는게 안전하다.
                     board[i][j] = 0;
                     dfs(i, j);
                 }
