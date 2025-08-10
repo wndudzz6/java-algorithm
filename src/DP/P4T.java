@@ -26,9 +26,10 @@ public class P4T {
         int[] dy = new int[n];
         int answer = 0;
 
+        //dp[i]가 ‘i번째 요소를 끝으로 하는 최적값 구조. 자주 쓰임
         for (int i = 0; i < n; i++) {
-            dy[i] = bricks.get(i).h;
-            for (int j = 0; j < i; j++) {
+            dy[i] = bricks.get(i).h; //초기화
+            for (int j = 0; j < i; j++) { // i보다 앞에 있는 j => j블럭이 더 크다
                 if (bricks.get(j).w > bricks.get(i).w) { // 무게가 더 큰 애만 밑에 올 수 있음
                     dy[i] = Math.max(dy[i], dy[j] + bricks.get(i).h);
                 }

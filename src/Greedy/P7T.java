@@ -39,7 +39,7 @@ public class P7T {
         Collections.sort(edges);
         int cnt = 0; //간선의 개수가 많은 경우 다 정해졌을 때 미리 for문 종료 (선택)
         for(Edge o: edges){
-            if(cnt == n-1) break;
+            if(cnt == n-1) break; //간선이 n-1개가 되면 종료 (n은 정점 수)
             int fv1 = Find(o.v1);
             int fv2 = Find(o.v2);
             if(fv1!=fv2){

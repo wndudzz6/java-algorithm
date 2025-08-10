@@ -1,9 +1,6 @@
 package DP.again;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 //4. 가장 높은 탑 쌓기 ~ 정렬을 쓰긴 해야해서 클래스 만드는게 나을듯
 //구성형!!! 누적형이 아님 누적형으로 dp구성했다가 틀림
@@ -15,29 +12,31 @@ public class P4 {
         int h;
         int w;
 
-        Brick(int s, int h, int w) {
-            this.s = s;//넓이
-            this.h = h;//높이
-            this.w = w;//무게
+        Brick(int s, int h, int w){
+            this.s = s;
+            this.h = h;
+            this.w = w;
         }
-
         @Override
         public int compareTo(Brick o){
-            return o.s - this.s; //넓이 기준정렬
+            return o.w-this.w; //무게 내림차순
         }
     }
 
+    //LIS 사고 방식 : 지금 내가 고른게 제일 위, 끝
     static int solution(int n, ArrayList<Brick> bricks) {
-        Collections.sort(bricks);//넓이 기준 정렬
-        int[] dp = new int[n];
-        for(int i = 0; i < n; i++){
+        Collections.sort(bricks);
+        int[] dp = new int[n]; //i를 맨 위로 둘 때 가장 큰 높이
+        for(int i = 0; i<n; i++){
             dp[i] = bricks.get(i).h;
-            for(int j = i-1; j>= 0;j-- ){
-                if(bricks.get(j).w > bricks.get(i).w){
+            for(int j = i; j>=0; j--){
+                //j가 i보다 무게가 더 무겁다.
+                if(bricks.get(i).s < bricks.get(j).s){
                     dp[i] = Math.max(dp[i], dp[j]+bricks.get(i).h);
                 }
             }
-        }return Arrays.stream(dp).max().getAsInt();
+        }
+        return Arrays.stream(dp).max().getAsInt();
     }
 
     public static void main(String[] args) {
